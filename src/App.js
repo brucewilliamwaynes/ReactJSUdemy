@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import Person from './Person/Person';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+        {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
@@ -19,9 +20,13 @@ class App extends Component {
           >
             Learn React
           </a>
-        </header>
+        </header> */}
+        <h1>Hi, I'm a React App</h1>
+        <p>Is this really working ?</p>
+        <Person></Person>
       </div>
     );
+    // return React.createElement('div',{className: 'App'},React.createElement('h1',null,'Hey, I\'m a React-ive App'));
   }
 }
 
