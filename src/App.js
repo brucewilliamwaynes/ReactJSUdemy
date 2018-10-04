@@ -4,6 +4,31 @@ import './App.css';
 import Person from './Person/Person';
 
 class App extends Component {
+
+  state = {
+    persons :[
+      {name:"Abhishek", age:21},
+      {name:"Anirban", age:21}
+    ]
+  }
+
+  switchNameHandler = (newName) => {
+    console.log('Ouch! clicked');
+    //Don't do this: this.state.person[0].name = "Batman";
+    
+    /*Changing just the individual element we want to change doesn't work
+    *Individual state elements can be mutated without changing the other state element
+    * but not within state element.
+    * Can you find out a way for it ? (5 Brownie points)
+    */
+    this.setState({
+      persons: [
+        {name:newName, age:21},
+        {name:"Anirban", age:22}
+      ]
+    } )
+  }
+
   render() {
     return (
       <div className="App">
@@ -23,7 +48,17 @@ class App extends Component {
         </header> */}
         <h1>Hi, I'm a React App</h1>
         <p>Is this really working ?</p>
-        <Person></Person>
+        <button onClick={this.switchNameHandler.bind(this, 'Abhi') }>Switch Name</button>
+        <Person 
+          name={this.state.persons[0].name} 
+          age={this.state.persons[0].age}
+          click={this.switchNameHandler}>
+        </Person>
+        <Person 
+          name={this.state.persons[1].name} 
+          age={this.state.persons[1].age}>
+          My Hobbies: Football
+        </Person>
       </div>
     );
     // return React.createElement('div',{className: 'App'},React.createElement('h1',null,'Hey, I\'m a React-ive App'));
